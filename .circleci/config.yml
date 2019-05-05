@@ -39,7 +39,6 @@ jobs: # a collection of steps
           name: test
           command: npm test
   deploy:
-    executor: heroku/default # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
     steps:
       - checkout
       - run:
