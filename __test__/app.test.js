@@ -29,4 +29,9 @@ describe('GET /testAPI', () => {
         expect(response.statusCode).toBe(200);
     });
 
+    test('It should return API is working properly', () => {
+        return request(app).get(url).then(response => {
+            expect(response.body).toBe('API is working properly')
+        })
+    });
 })
