@@ -39,6 +39,7 @@ jobs: # a collection of steps
           name: test
           command: npm test
   deploy:
+    executor: circleci/heroku@1.0.0 # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
     steps:
       - checkout
       - run:
