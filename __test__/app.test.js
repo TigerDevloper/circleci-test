@@ -10,9 +10,9 @@ describe('GET /', () => {
         })
     });
 
-    test('It should return Welcome to Express!', () => {
+    test('It should return Welcome to Express', () => {
         return request(app).get(url).then(response => {
-            expect(response.text).toBe('Welcome to Express!')
+            expect(response.text).toContain('Welcome to Express')
         })
     });
 
