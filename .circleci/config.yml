@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 orbs:
   heroku: circleci/heroku@1.0.0
 workflows:
@@ -47,4 +47,4 @@ jobs: # a collection of steps
       - run:
           name: Deploy Master to Heroku
           command: |
-            git push https://heroku:6e86a2e8-2ee7-4cf6-a93c-11ab0257845a@git.heroku.com/$HEROKU_APP_NAME.git master
+            git push https://heroku:3b0c0f5b-2e1c-40c2-ac9f-5d62773640e0@git.heroku.com/$HEROKU_APP_NAME.git master
