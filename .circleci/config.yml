@@ -17,7 +17,7 @@ jobs: # a collection of steps
       - checkout
       - run:
           name: Heroku Login Credential
-          command: - heroku login
+          command: heroku login
       
       - run:
           name: Deploy Master to Heroku
