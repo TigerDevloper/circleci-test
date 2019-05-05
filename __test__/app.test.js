@@ -12,7 +12,7 @@ describe('GET /', () => {
 
     test('It should return Welcome to Express!', () => {
         return request(app).get(url).then(response => {
-            expect(Express).toBe('Welcome to Express!')
+            expect(response.text).toBe('Welcome to Express!')
         })
     });
 
