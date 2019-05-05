@@ -15,6 +15,7 @@ jobs: # a collection of steps
       - image: buildpack-deps:trusty # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
     steps:
       - checkout
+      - heroku login
       - run:
           name: Deploy Master to Heroku
           command: |
