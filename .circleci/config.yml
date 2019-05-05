@@ -28,7 +28,7 @@ jobs: # a collection of steps
           command: npm test
       - run:
           name: code-coverage
-          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+          command: './node_modules/.bin/nyc report --reporter=text-lcov npm test'
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: test-results.xml
