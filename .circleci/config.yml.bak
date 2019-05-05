@@ -1,17 +1,3 @@
-version: 2.1
-orbs:
-  heroku: circleci/heroku@1.0.0
-workflows:
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
-
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
@@ -40,11 +26,31 @@ jobs: # a collection of steps
       - run: # run tests
           name: test
           command: npm test
-  deploy:
-    executor: heroku/default # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:6e86a2e8-2ee7-4cf6-a93c-11ab0257845a@git.heroku.com/$HEROKU_APP_NAME.git master
+    #   - run:
+    #       name: code-coverage
+    #       command: './node_modules/.bin/nyc report --reporter=text-lcov'
+    #   - store_artifacts: # special step to save test results as as artifact
+    #       # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
+    #       path: test-results.xml
+    #       prefix: tests
+    #       destination: test-results.xml
+    #   - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+    #       path: test-results.xml
+    
+    
+    #   - run:
+    #       name: Creating Dummy Artifacts
+    #       command: |
+    #         echo "my artifact file" > /tmp/artifact-1;
+    #         mkdir /tmp/artifacts;
+    #         echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
+
+    #   - store_artifacts:
+    #       path: /tmp/artifact-1
+    #       destination: artifact-file
+
+    #   - store_artifacts:
+    #       path: /tmp/artifacts
+    #       destination: files
+
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
