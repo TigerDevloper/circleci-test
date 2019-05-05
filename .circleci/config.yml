@@ -40,4 +40,5 @@ jobs: # a collection of steps
 
       - store_artifacts:
           path: /tmp/artifacts
+          destination: files
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
