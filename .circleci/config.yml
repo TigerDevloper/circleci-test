@@ -1,7 +1,7 @@
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
-    working_directory: ~/temp # directory where steps will run
+    working_directory: ~/ # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node:9.9.0 # ...with this image as the primary container; this is where all `steps` will run
       - image: mongo:3.4.4 # and this image as the secondary service container
@@ -31,5 +31,5 @@ jobs: # a collection of steps
           path: test-results.xml
           prefix: tests
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: temp/test-results.xml
+          path: /test-results.xml
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
