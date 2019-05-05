@@ -31,7 +31,7 @@ describe('GET /testAPI', () => {
 
     test('It should return API is working properly', () => {
         return request(app).get(url).then(response => {
-            expect(response.body).toBe('API is working properly')
+            expect(response.text).toBe('API is working properly')
         })
     });
 })
