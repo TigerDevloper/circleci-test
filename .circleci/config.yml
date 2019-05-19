@@ -11,10 +11,10 @@ workflows:
               only: master
 jobs: # a collection of steps
   deploy:
-    docker:
-      - image: buildpack-deps:trusty # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
+    executor: heroku/default # Uses the basic buildpack-deps image, which has the prerequisites for installing heroku's CLI.
     steps:
       - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: git push https://heroku:3b0c0f5b-2e1c-40c2-ac9f-5d62773640e0@git.heroku.com/node-circle-app.git master
+      - heroku/install
+      - heroku/deploy-via-git: # Deploys branch to Heroku via git push.
+          only-branch: master # If you specify an only-branch, the deploy will not occur for any other branch.
+
